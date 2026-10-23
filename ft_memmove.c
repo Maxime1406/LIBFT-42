@@ -6,7 +6,7 @@
 /*   By: mbardeau <mbardeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 11:14:23 by mbardeau          #+#    #+#             */
-/*   Updated: 2026/10/23 14:44:14 by mbardeau         ###   ########.fr       */
+/*   Updated: 2026/10/23 18:16:49 by mbardeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char	*d;
+	unsigned char		*d;
 	const unsigned char	*s;
 
 	if (!dest && !src)
