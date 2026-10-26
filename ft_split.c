@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#import "libft.h"
+#include "libft.h"
 
 static char	**ft_free_tab(char **tab, int j)
 {

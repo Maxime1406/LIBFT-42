@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#import "libft.h"
+#include "libft.h"
 
 static int	ft_nbrlen(long nbr)
 {

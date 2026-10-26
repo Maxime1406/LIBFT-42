@@ -23,11 +23,3 @@ t_list	*ft_lstnew(void *content)
 	lst->content = content;
 	return (lst);
 }
-
-int	main(void)
-{
-	char	*content;
-	content = "Hello!";
-	t_list *res = ft_lstnew(content);
-	printf("\nResultat de ft_lstnew(): %s", (char *)res->content);
-}
