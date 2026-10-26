@@ -6,7 +6,7 @@
 /*   By: mbardeau <mbardeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 12:07:40 by mbardeau          #+#    #+#             */
-/*   Updated: 2026/10/23 12:05:03 by mbardeau         ###   ########.fr       */
+/*   Updated: 2026/10/26 09:47:41 by mbardeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static size_t	ft_get_start(const char *s1, const char *set)
 		while (set[i] && set[i] != s1[start])
 			i++;
 		if (!set[i])
-			break;
+			break ;
 		start++;
 	}
 	return (start);
@@ -44,7 +44,7 @@ static size_t	ft_get_end(const char *s1, const char *set, size_t start)
 		while (set[i] && set[i] != s1[end])
 			i++;
 		if (!set[i])
-			break;
+			break ;
 		end--;
 	}
 	return (end);

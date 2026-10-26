@@ -6,7 +6,7 @@
 /*   By: mbardeau <mbardeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 12:10:34 by mbardeau          #+#    #+#             */
-/*   Updated: 2026/10/23 15:41:21 by mbardeau         ###   ########.fr       */
+/*   Updated: 2026/10/26 16:55:57 by mbardeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -371,5 +371,73 @@ int	main(void)
 	res_strtrim = ft_strtrim(char_strtrim, set_strtrim);
 	printf("\n Resultat de ft_strtrim(): %s \n", res_strtrim);
 	free(res_strtrim);
+
+	//FT_SPLIT
+	char	sep = ' ';
+	str = "    La maison est montee";
+	char	**res = ft_split(str, sep);
+
+	int	i = 0;
+	while (res[i])
+	{
+		printf("%s\n", res[i]);
+		free(res[i]);
+		i++;
+	}
+	free(res);
+	res = ft_split("  bab abab   abhc ", ' ');
+
+	i = 0;
+	while (res[i])
+	{
+		printf("%s\n", res[i]);
+		free(res[i]);
+		i++;
+	}
+	free(res);
+
+	//FT_ITOA
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(2147483647));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(-2147483648));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(0));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(1));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(2));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(9));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(10));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(11));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(42));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(-1));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(-2));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(-9));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(-10));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(-11));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(-42));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(6942069));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(14698465));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(-16465));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(546465));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(-164465));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(684));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(-68465));
+	printf("\nResultat de ft_itoa(): %s", ft_itoa(6851465));
+	//printf("\nResultat de ft_itoa(): %s", ft_itoa(int.MIN));
+	
+
 	return (0);
 }
+
+
+void	delete_str(char **str)
+{
+	free(*str);
+	*str = NULL;
+}
+
+void	ft(int *a)
+{
+	*a = 42;
+}
+
+char *mystr = strdup("hello");
+delete_str(&mystr);
+printf("%s", mystr);

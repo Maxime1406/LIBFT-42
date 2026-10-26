@@ -6,7 +6,7 @@
 /*   By: mbardeau <mbardeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 11:15:49 by mbardeau          #+#    #+#             */
-/*   Updated: 2026/10/23 11:26:26 by mbardeau         ###   ########.fr       */
+/*   Updated: 2026/10/26 13:54:47 by mbardeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	ft_atoi(const char *nptr)
 {
 	int					i;
 	int					neg;
+	int					res_convert;
 	const unsigned char	*ptr;
 
 	i = 0;
@@ -55,5 +56,6 @@ int	ft_atoi(const char *nptr)
 			neg *= -1;
 		i++;
 	}
-	return ((int)ft_convert(ptr, neg, i));
+	res_convert = (int)ft_convert(ptr, neg, i);
+	return (res_convert);
 }

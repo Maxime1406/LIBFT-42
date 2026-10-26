@@ -5,38 +5,56 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbardeau <mbardeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/19 12:07:40 by mbardeau          #+#    #+#             */
-/*   Updated: 2026/10/23 11:52:14 by mbardeau         ###   ########.fr       */
+/*   Created: 2026/10/26 13:18:27 by mbardeau          #+#    #+#             */
+/*   Updated: 2026/10/26 13:18:27 by mbardeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #import "libft.h"
 
-void ft_putchar(char c) {
-    write(1, &c, 1);
+static int	ft_nbrlen(long nbr)
+{
+	int	len;
+
+	len = 0;
+	if (nbr == 0)
+		len++;
+	if (nbr < 0)
+	{
+		len++;
+		nbr = -nbr;
+	}
+	while (nbr > 0)
+	{
+		nbr = nbr / 10;
+		len++;
+	}
+	return (len);
 }
 
-void ft_putnbr(int nb)
+char	*ft_itoa(int n)
 {
-    if (nb == -2147483648) {
-        write(1, "-2147483648", 11);
-        return;
-    }
-    if (nb < 0)
-    {
-        ft_putchar("-");
-        nb = -nb;
-    }
-    if (nb >= 10)
-    {
-        ft_putnbr(nb / 10);
-        ft_putnbr(nb % 10);
-    }
-    else
-        ft_putchar(nb + '0');
-}
+	char	*dest;
+	long	nbr;
+	int		len;
 
-char    *ft_itoa(int n)
-{
-    return (dest);
+	nbr = n;
+	len = ft_nbrlen(nbr);
+	dest = (char *)malloc((len + 1) * sizeof(char));
+	if (!dest)
+		return (NULL);
+	dest[len--] = '\0';
+	if (nbr == 0)
+		dest[0] = nbr + '0';
+	if (nbr < 0)
+	{
+		dest[0] = '-';
+		nbr = -nbr;
+	}
+	while (nbr > 0)
+	{
+		dest[len--] = (nbr % 10) + '0';
+		nbr = nbr / 10;
+	}
+	return (dest);
 }
