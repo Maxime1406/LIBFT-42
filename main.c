@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <bsd/string.h>
 
 int	main(void)
 {
@@ -364,11 +365,11 @@ int	main(void)
 	free(res_strjoin);
 
 	//FT_STRTRIM
-	const char	*char_strtrim = "Etre ou ne pas etre, telle est la question";
-	const char	*set_strtrim = "e";
+	const char	*char_strtrim = "*****Bonjour ..comment vas-tu?...";
+	const char	*set_strtrim = "*.";
 	char	*res_strtrim;
 	res_strtrim = ft_strtrim(char_strtrim, set_strtrim);
-	printf("\n Resultat de ft_strtrim(): %s", res_strtrim);
+	printf("\n Resultat de ft_strtrim(): %s \n", res_strtrim);
 	free(res_strtrim);
 	return (0);
 }

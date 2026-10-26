@@ -26,6 +26,8 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 		dest[0] = '\0';
 		return (dest);
 	}
+	if (len > len_s - start)
+		len = len_s - start;
 	dest = malloc((len + 1) * sizeof(char));
 	if (!dest)
 		return (NULL);
@@ -39,8 +41,8 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	return (dest);
 }
 
-int	main(void)
+/*int	main(void)
 {
-	printf("\nft_substr(): %s", ft_substr("hello", 0, 18446744073709551615));
+	printf("\nft_substr(): %s", ft_substr("hello", 0, 29));
 	return (0);
-}
+}*/

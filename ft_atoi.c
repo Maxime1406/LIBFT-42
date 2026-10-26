@@ -42,11 +42,9 @@ int	ft_atoi(const char *nptr)
 {
 	int					i;
 	int					neg;
-	long long			res;
 	const unsigned char	*ptr;
 
 	i = 0;
-	res = 0;
 	neg = 1;
 	ptr = (const unsigned char *)nptr;
 	while (ft_isspace(ptr[i]))

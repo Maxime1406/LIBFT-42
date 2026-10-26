@@ -27,7 +27,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	i = 0;
 	if (size >= len_dst && size - len_dst > 0)
 	{
-		while (i < size - len_dst - 1)
+		while (src[i] && (i < size - len_dst - 1))
 		{
 			dst[len_dst + i] = src[i];
 			i++;
@@ -36,17 +36,4 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		return (len_dst + len_src);
 	}
 	return (len_src + size);
-}
-
-#include <bsd/string.h>
-int	main(void)
-{
-	char	dst1[10] = "A big";
-	char 	*src1 = "test";
-	size_t	res1;
-	size_t	res2;
-	res1 = strlcat(dst1, src1, -1);
-	res2 = ft_strlcat(dst1, src1, -1);
-	printf("\nstrlcat(): %zu", res1);
-	printf("\nft_strlcat(): %zu", res2);
 }
