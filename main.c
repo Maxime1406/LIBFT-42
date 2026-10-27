@@ -6,7 +6,7 @@
 /*   By: mbardeau <mbardeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 12:10:34 by mbardeau          #+#    #+#             */
-/*   Updated: 2026/10/26 16:55:57 by mbardeau         ###   ########.fr       */
+/*   Updated: 2026/10/27 10:05:25 by mbardeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -424,19 +424,23 @@ int	main(void)
 
 	//FT_LSTNEW
 	char	*content = "Hello!";
-	t_list *res = ft_lstnew(content);
-	res = ft_lstnew("Salut");
-	res = ft_lstnew("Bonsoir");
-	res = ft_lstnew("C\'est Polo");
-	printf("\nResultat de ft_lstnew(): %s", (char *)res->content);
+	t_list *reslst = ft_lstnew(content);
+	reslst = ft_lstnew("Coucou");
+	reslst = ft_lstnew("Bonsoir");
+	reslst = ft_lstnew("C\'est Polo");
+	printf("\nResultat de ft_lstnew(): %s", (char *)reslst->content);
 	
 	//FT_LSTADD_FRONT
-    t_list *new = ft_lstnew("Coucou!!");    
-    ft_lstadd_front(&res, new);
-    printf("\nResultat de ft_lstadd_front(): %s", (char *)res->content);
+    t_list	*new = ft_lstnew("Salut");
+	t_list	*new1 = ft_lstnew("Bonsoir");
+	t_list	*new2 = ft_lstnew("C\'est Polo");
+    ft_lstadd_front(&reslst, new);
+	ft_lstadd_front(&reslst, new1);
+	ft_lstadd_front(&reslst, new2);
+    printf("\nResultat de ft_lstadd_front(): %s", (char *)reslst->content);
 
 	//FT_LSTSIZE
-	printf("\n ft_lstsize(): %d", ft_lstsize(res));
+	printf("\n ft_lstsize(): %d", ft_lstsize(reslst));
 
 	
 	return (0);

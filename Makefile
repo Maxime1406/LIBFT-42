@@ -13,6 +13,11 @@ SRCS = ft_atoi.c \
 	ft_lstadd_front.c \
 	ft_lstsize.c \
 	ft_lstlast.c \
+	ft_lstadd_back.c \
+	ft_lstdelone.c \
+	ft_lstclear.c \
+	ft_lstiter.c \
+	ft_lstmap.c \
 	ft_memchr.c \
 	ft_memcmp.c \
 	ft_memcpy.c \

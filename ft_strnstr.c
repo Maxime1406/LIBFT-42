@@ -6,7 +6,7 @@
 /*   By: mbardeau <mbardeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 12:07:40 by mbardeau          #+#    #+#             */
-/*   Updated: 2026/10/23 11:52:41 by mbardeau         ###   ########.fr       */
+/*   Updated: 2026/10/27 12:43:08 by mbardeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,18 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	if (little[0] == '\0')
 		return ((char *) big);
-	j = 0;
-	while (j < len && big[j])
+	i = 0;
+	while (i < len && big[i])
 	{
-		i = 0;
-		while (j < len && little[i] && big[j] && little[i] == big[j])
+		j = 0;
+		while (i < len && little[j] && big[i] && little[j] == big[i])
 		{
 			i++;
 			j++;
 		}
-		if (little[i] == '\0')
-			return ((char *)&big[j - i]);
-		j = j - i + 1;
+		if (little[j] == '\0')
+			return ((char *)&big[i - j]);
+		i = i - j + 1;
 	}
 	return (0);
 }
