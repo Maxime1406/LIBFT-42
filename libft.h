@@ -17,10 +17,7 @@
 /*                    	     INCLUDE STANDARDS LIBRARIES		              */
 /*============================================================================*/
 
-# include <stdio.h>
 # include <unistd.h>
-# include <string.h>
-# include <ctype.h>
 # include <stdlib.h>
 # include <limits.h>
 # include <stdint.h>

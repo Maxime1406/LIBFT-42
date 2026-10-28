@@ -20,13 +20,10 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	i = 0;
 	len_s = ft_strlen(s);
-	if (len == 0)
+	if (start >= len_s)
 	{
 		dest = ft_calloc(1, sizeof(char));
-		if (!dest)
-			return (NULL);
 		return (dest);
 	}
 	if (len > len_s - start)
@@ -34,8 +31,11 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	dest = ft_calloc(len + 1, sizeof(char));
 	if (!dest)
 		return (NULL);
-	while (i < len && start < len_s + 1)
-		dest[i++] = s[start++];
-	dest[i] = '\0';
+	i = 0;
+	while (i < len)
+	{
+		dest[i] = s[start + i];
+		i++;
+	}
 	return (dest);
 }

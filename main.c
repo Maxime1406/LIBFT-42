@@ -6,12 +6,48 @@
 /*   By: mbardeau <mbardeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 12:10:34 by mbardeau          #+#    #+#             */
-/*   Updated: 2026/10/27 10:05:25 by mbardeau         ###   ########.fr       */
+/*   Updated: 2026/10/28 04:15:00 by mbardeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <bsd/string.h>
+
+// Fonctions auxiliaires pour les tests ajoutés à la fin
+static void	my_striteri_func(unsigned int i, char *c)
+{
+	(void)i;
+	if (*c >= 'a' && *c <= 'z')
+		*c -= 32;
+}
+
+static char	my_strmapi_func(unsigned int i, char c)
+{
+	(void)i;
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
+}
+
+static void	my_lstiter_func(void *content)
+{
+	char	*str = (char *)content;
+	if (str)
+		printf("Lstiter element: %s\n", str);
+}
+
+static void	*my_lstmap_func(void *content)
+{
+	char	*str = (char *)content;
+	if (!str)
+		return (NULL);
+	return (strdup(str));
+}
+
+static void	del_content(void *content)
+{
+	free(content);
+}
 
 int	main(void)
 {
@@ -420,7 +456,6 @@ int	main(void)
 	printf("\nResultat de ft_itoa(): %s", ft_itoa(684));
 	printf("\nResultat de ft_itoa(): %s", ft_itoa(-68465));
 	printf("\nResultat de ft_itoa(): %s", ft_itoa(6851465));
-	//printf("\nResultat de ft_itoa(): %s", ft_itoa(int.MIN));
 
 	//FT_LSTNEW
 	char	*content = "Hello!";
@@ -442,22 +477,42 @@ int	main(void)
 	//FT_LSTSIZE
 	printf("\n ft_lstsize(): %d", ft_lstsize(reslst));
 
-	
+
+	// FT_STRITERI & FT_STRMAPI
+	char	str_iter[] = "bonjour";
+	ft_striteri(str_iter, my_striteri_func);
+	printf("\nResultat ft_striteri(): %s", str_iter);
+
+	char	*str_mapi = ft_strmapi("bonjour", my_strmapi_func);
+	printf("\nResultat ft_strmapi():  %s", str_mapi);
+	free(str_mapi);
+
+	// FT_PUT*_FD
+	printf("\nTests put*_fd : ");
+	ft_putchar_fd('A', 1);
+	ft_putstr_fd(" | ", 1);
+	ft_putendl_fd("B", 1);
+	ft_putnbr_fd(42, 1);
+	printf("\n");
+
+	// FT_LSTLAST & FT_LSTADD_BACK
+	t_list	*new_back = ft_lstnew(strdup("Dernier_back"));
+	ft_lstadd_back(&reslst, new_back);
+	if (ft_lstlast(reslst))
+		printf("ft_lstlast() resultat : %s\n", (char *)ft_lstlast(reslst)->content);
+
+	// FT_LSTITER
+	ft_lstiter(reslst, my_lstiter_func);
+
+	// FT_LSTMAP
+	t_list	*mapped = ft_lstmap(reslst, my_lstmap_func, del_content);
+	if (mapped)
+		printf("ft_lstmap premier element : %s\n", (char *)mapped->content);
+	ft_lstclear(&mapped, del_content);
+
+	// FT_LSTCLEAR
+	ft_lstclear(&reslst, del_content);
+	printf("Liste nettoyee avec ft_lstclear.\n");
+
 	return (0);
 }
-
-
-/*void	delete_str(char **str)
-{
-	free(*str);
-	*str = NULL;
-}
-
-void	ft(int *a)
-{
-	*a = 42;
-}
-
-char *mystr = strdup("hello");
-delete_str(&mystr);
-printf("%s", mystr);*/
