@@ -83,7 +83,10 @@ static char	**ft_fill_split(const char *str, char c, char **res)
 			i++;
 		res[j] = ft_dup_word(str, k, i);
 		if (!res[j])
-			return (ft_free_tab(res, j));
+		{
+			ft_free_tab(res, j);
+			return (NULL);
+		}
 		j++;
 	}
 	res[j] = NULL;

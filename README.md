@@ -1,88 +1,98 @@
+*This project has been created as part of the 42 curriculum by mbardeau*
+
 # Libft - 42 Project
 
-## À propos
-La **Libft** est le premier projet du tronc commun de l'école 42. L'objectif est de recoder un ensemble de fonctions de la bibliothèque standard C (`libc`), ainsi que des fonctions utilitaires supplémentaires et de manipulation de listes chaînées, afin de se constituer une bibliothèque statique (`libft.a`) réutilisable pour les futurs projets du cursus.
+## Description
+**Libft** is the first project of the 42 school's common core. The main objective is to recode a set of functions from the standard C library (`libc`), as well as additional utility functions and linked list manipulation functions. This project helps build solid foundations in C programming, in memory management, and creates a static library (`libft.a`) that can be reused for future projects in the curriculum.
 
 ---
 
-## 📋 Description détaillée des fonctions
+## Instructions
 
-### 1. Partie 1 : Fonctions de la Libc
+### Prerequisites
 
-#### Classification de caractères (`<ctype.h>`)
-* **`ft_isalpha`** : Vérifie si un caractère est alphabétique.
-* **`ft_isdigit`** : Vérifie si un caractère est un chiffre décimal.
-* **`ft_isalnum`** : Vérifie si un caractère est alphanumérique.
-* **`ft_isascii`** : Vérifie si un caractère fait partie de la table ASCII.
-* **`ft_isprint`** : Vérifie si un caractère est imprimable.
+- A C compiler (`cc`)
+- The compilation utility `make`
+- A Unix / Linux or WSL environment
 
-#### Conversion de casse
-* **`ft_toupper`** : Convertit un caractère en majuscule.
-* **`ft_tolower`** : Convertit un caractère en minuscule.
-
-#### Manipulation de chaînes (`<string.h>`)
-* **`ft_strlen`** : Calcule la longueur d'une chaîne de caractères.
-* **`ft_strchr`** : Recherche la première occurrence d'un caractère dans une chaîne.
-* **`ft_strrchr`** : Recherche la dernière occurrence d'un caractère dans une chaîne.
-* **`ft_strncmp`** : Compare deux chaînes de caractères sur `n` octets.
-* **`ft_strnstr`** : Localise une sous-chaîne dans une chaîne sur une taille maximale.
-* **`ft_strlcpy`** : Copie une chaîne de caractères avec une taille limitée et sécurisée.
-* **`ft_strlcat`** : Concatène deux chaînes de caractères de manière sécurisée.
-* **`ft_strdup`** : Duplique une chaîne de caractères en allouant la mémoire nécessaire.
-
-#### Manipulation de mémoire
-* **`ft_memset`** : Remplit une zone mémoire avec une valeur constante.
-* **`ft_bzero`** : Met à zéro une zone mémoire.
-* **`ft_memcpy`** : Copie une zone mémoire.
-* **`ft_memmove`** : Copie une zone mémoire en gérant les chevauchements.
-* **`ft_memchr`** : Recherche un octet dans une zone mémoire.
-* **`ft_memcmp`** : Compare deux zones mémoire.
-
-#### Allocation et conversion
-* **`ft_calloc`** : Alloue de la mémoire et l'initialise à zéro.
-* **`ft_atoi`** : Convertit une chaîne de caractères en entier (`int`).
+### Compilation and Makefile Rules
+At the root of the project you can use the following commands:
+* **`make`** : Compiles the source files and generates the static library **`libft.a`**.
+* **`make clean`** : Deletes the objects files (`.o`).
+* **`make fclean`** : Deletes the objects files and the `libft.a` library.
+* **`make re`** : Performs an `fclean` followd by a `make` to recompile everything from scratch.
 
 ---
 
-### 2. Partie 2 : Fonctions additionnelles
-* **`ft_substr`** : Alloue (avec `malloc(3)`) et retourne une chaîne de caractères issue de la chaîne `s`. Cette nouvelle chaîne commence à l'index `start` et a pour taille maximale `len`.
-* **`ft_strjoin`** : Alloue (avec `malloc(3)`) et retourne une nouvelle chaîne, résultat de la concaténation de `s1` et `s2`.
-* **`ft_strtrim`** : Alloue (avec `malloc(3)`) et retourne une copie de la chaîne `s1`, sans les caractères spécifiés dans `set` au début et à la fin de la chaîne de caractères.
-* **`ft_split`** : Alloue (avec `malloc(3)`) et retourne un tableau de chaînes de caractères obtenu en séparant `s` à l'aide du caractère `c`, utilisé comme délimiteur. Le tableau doit être terminé par `NULL`.
-* **`ft_itoa`** : Alloue (avec `malloc(3)`) et retourne une chaîne de caractères représentant l'entier `n` reçu en argument. Les nombres négatifs doivent être gérés.
-* **`ft_strmapi`** : Applique la fonction `f` à chaque caractère de la chaîne de caractères passée en argument pour créer une nouvelle chaîne de caractères (avec `malloc(3)`) résultant des applications successives de `f`.
-* **`ft_striteri`** : Applique la fonction `f` à chaque caractère de la chaîne de caractères transmise comme argument, et en passant son index comme premier argument. Chaque caractère est transmis par adresse à `f` afin d'être modifié si nécessaire.
-* **`ft_putchar_fd`** : Écrit le caractère `c` sur le descripteur de fichier donné.
-* **`ft_putstr_fd`** : Écrit la chaîne de caractères `s` sur le descripteur de fichier donné.
-* **`ft_putendl_fd`** : Écrit La chaîne de caractères `s` sur le descripteur de fichier donné suivie d'un retour à la ligne.
-* **`ft_putnbr_fd`** : Écrit l'entier `n` sur le descripteur de fichier donné.
+## Detailed Description of the Library
+
+### 1. Part 1 : Libc Functions
+
+#### Character classification (`<ctype.h>`)
+* **`ft_isalpha`** : Verify if a character is alphabetic (a/A to z/Z).
+* **`ft_isdigit`** : Verify if a character is a digit (0 through 9).
+* **`ft_isalnum`** : Verify if a character is alphanumeric.
+* **`ft_isascii`** : Verify if a character belongs to the ASCII table.
+* **`ft_isprint`** : Verify if a character is printable.
+
+#### Case conversion
+* **`ft_toupper`** : Convert a lowercase character to an uppercase one.
+* **`ft_tolower`** : Convert an uppercase character to a lowercase one.
+
+#### String manipulation (`<string.h>`)
+* **`ft_strlen`** : Calcul the length of a string of characters.
+* **`ft_strchr`** : Search for the first occurence of a character in a string.
+* **`ft_strrchr`** : Search the last occurence of a character in a string.
+* **`ft_strncmp`** : Compare two strings of characters up to `n` bytes.
+* **`ft_strnstr`** : Search for the first occurence of a substring in a string, up to a maximum length.
+* **`ft_strlcpy`** : Copies a string of characters with a limited and secure size.
+* **`ft_strlcat`** : Concatenates two strings of characters safely.
+* **`ft_strdup`** : Duplicates a string of characters by allocatins the necessary memory.
+
+#### Memory manipulation
+* **`ft_memset`** : Fills the first bytes of a memory area with a constant value.
+* **`ft_bzero`** : Sets the first bytes of a memory area to zero.
+* **`ft_memcpy`** : Copies bytes from a source memory area to a destination memory area.
+* **`ft_memmove`** : Copies bytes from a source to a destination, handling overlapping memory areas correctly.
+* **`ft_memchr`** : Searches for the first occurrence of a byte in a memory area.
+* **`ft_memcmp`** : Compares two memory areas.
+
+#### Allocation and conversion
+* **`ft_calloc`** : Allocates memory and initializes its bytes to zero.
+* **`ft_atoi`** : Converts a string of characters to an integer (`int`).
 
 ---
 
-### 3. Partie Bonus : Listes chaînées
-* **`ft_lstnew`** : Alloue (avec `malloc(3)`) et renvoie un nouvel élément. La variable membre `content` est initialisée à l'aide de la valeur du paramètre `content`. La variable `next` est initialisée à `NULL`.
-* **`ft_lstadd_front`** : Ajoute l'élément `new` au début de la liste.
-* **`ft_lstsize`** : Compte le nombre d'éléments de la liste.
-* **`ft_lstlast`** : Renvoie le dernier élément de la liste.
-* **`ft_lstadd_back`** : Ajoute l'élément `new` à la fin de la liste.
-* **`ft_lstdelone`** : Libère la mémoire de l'élément passé en argument en utilisant la fonction `del` puis avec `free(3)`. La mémoire de `next` ne doit pas être free.
-* **`ft_lstclear`** : Supprime et libère la mémoire de l'élément passé en paramètre, et de tous les éléments qui suivent, à l'aide de `del` et de `free(3)`. Enfin, le pointeur initial doit être mis à `NULL`.
-* **`ft_lstiter`** : Itère sur la liste `lst` et applique la fonction `f` au contenu chaque élément.
-* **`ft_lstmap`** : Itère sur la liste `lst` et applique la fonction `f` au contenu de chaque élément. Crée une nouvelle liste résultant des applications successives de `f`. La fonction `del` est là pour détruire le contenu d'un élément si nécessaire.
+### 2. Part 2 : Additionnal Functions
+* **`ft_substr`** : Allocates (with `malloc()`) and returns a string of characters derived from the string `s`. This new string starts at index `start` and has a maximum size of `len`.
+* **`ft_strjoin`** : Allocates (with `malloc()`) and returns a new string, result of the concatenation of `s1` and `s2`.
+* **`ft_strtrim`** : Allocates (with `malloc()`) and returns a copy of the string `s1`, without the characters specified in `set` at the beginning and at the end of the string of characters.
+* **`ft_split`** : Allocates (with `malloc()`) and returns an array of strings of characters obtained by separating `s` using the character `c`, used as delimiter. The array must be terminated by `NULL`. 
+* **`ft_itoa`** : Allocates (with `malloc()`) and returns a string of characters representing the integer `n` received as argument. Negative numbers must be handled.
+* **`ft_strmapi`** : Applies the function `f` to each character of the string of characters passed as argument to create a new string of characters (with `malloc()`) resulting from successive applications of `f`.
+* **`ft_striteri`** : Applies the function `f` to each character of the string of characters transmitted as argument, and by passing its index as first argument. Each character is transmitted by address to `f` in order to be modified if necessary.
+* **`ft_putchar_fd`** : Write the `c` character to the given file descriptor.
+* **`ft_putstr_fd`** : Write the `s` string to the given file descriptor.
+* **`ft_putendl_fd`** : Write the `s` string to the given file descriptor followed by a new line. 
+* **`ft_putnbr_fd`** : Write the `n` int to	 the given file descriptor.
 
 ---
 
-## 🛠️ Compilation et Utilisation
+### 3. Part 3 : Linked list
+* **`ft_lstnew`** : Allocates (with `malloc()`) and return a new element. The member variable `content` is initialized using the value of the parameter `content`. The variable `next` is initialized to `NULL`. 
+* **`ft_lstadd_front`** : Adds the element `new` at the beginning of the list.
+* **`ft_lstsize`** : Count the number of elements in the list.
+* **`ft_lstlast`** : Returns the last element of the list.
+* **`ft_lstadd_back`** : Adds the element `new` at the end of the list.
+* **`ft_lstdelone`** : Frees the memory of the element passed as argument using the function `del` then with `free()`. The memory of `next` must not be freed.
+* **`ft_lstclear`** : Deletes and frees the memory of the element passed as parameter, and of all the elements that follow, using `del` and `free()`. Finally, the initial pointer must be set to `NULL`.
+* **`ft_lstiter`** : Iterates over the list `lst` and applies the function `f` to the content of each element.
+* **`ft_lstmap`** : Iterates over the list `lst` and applies the function `f` to the content of each element. Creates a new list resulting from the successive applications of `f`. The function `del` is there to destroy the content of an element if necessary.
 
-### Instructions du Makefile
-À la racine du projet, utilise les commandes suivantes selon les besoins :
+---
 
-* **`make`** : Compile les fichiers sources et génère la bibliothèque statique **`libft.a`**.
-* **`make clean`** : Supprime les fichiers objets (`.o`).
-* **`make fclean`** : Supprime les fichiers objets ainsi que la bibliothèque `libft.a`.
-* **`make re`** : Effectue un `fclean` suivi d'un `make` pour tout recompiler à neuf.
-
-### Comment l'utiliser dans un programme
-1. Inclure le fichier d'en-tête dans ton code source :
-   ```c
-   #include "libft.h"
+## Resources
+* Official C documentation (`man`)
+* Geeksforgeeks.org for Libc functions, hints for differences (malloc/calloc) and use examples.
+* Official 42 Libft subject
+* **AI Usage:** Artificial intelligence was used to learn/understand how linked lists work with some examples and create a special main to make more differents tests than my actual one.

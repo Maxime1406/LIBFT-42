@@ -6,13 +6,12 @@
 /*   By: mbardeau <mbardeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 13:33:43 by mbardeau          #+#    #+#             */
-/*   Updated: 2026/10/26 14:51:28 by mbardeau         ###   ########.fr       */
+/*   Updated: 2026/10/29 09:40:43 by mbardeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//faut gerer quand size est -1 car ca donne 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	len_dst;

@@ -6,7 +6,7 @@
 /*   By: mbardeau <mbardeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 12:07:40 by mbardeau          #+#    #+#             */
-/*   Updated: 2026/10/23 15:36:02 by mbardeau         ###   ########.fr       */
+/*   Updated: 2026/10/29 12:06:43 by mbardeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,5 @@ char	*ft_strrchr(const char *s, int c)
 			return ((char *)&s[len_s]);
 		len_s--;
 	}
-	if ((char)c == 0)
-		return ((char *)&s[len_s]);
 	return (0);
 }
